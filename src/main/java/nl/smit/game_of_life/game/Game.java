@@ -23,21 +23,9 @@ public class Game {
      * preforms a single step in the game.
      */
     public void preformStep() {
-        //TODO
+        board.preformStep();
     }
 
-    /**
-     * Start a auto loop of steps.
-     */
-    public void start() {
-        //TODO
-    }
 
-    /**
-     * Stops the auto loop of steps.
-     */
-    public void stop() {
-        //TODO
-    }
 
 }

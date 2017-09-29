@@ -1,4 +1,4 @@
-package nl.dreamteam.pooralien.sprite;
+package nl.smit.game_of_life.sprite;
 
 import java.awt.Graphics;
 

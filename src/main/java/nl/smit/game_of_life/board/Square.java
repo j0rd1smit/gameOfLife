@@ -101,4 +101,8 @@ public class Square {
         alive = aliveInNextCycle;
         aliveInNextCycle = ALIVE_IN_NEXT_CYCLE_DEFAULT;
     }
+
+    public Square getSquareAt(Direction direction) {
+        return neighbours.get(direction);
+    }
 }
