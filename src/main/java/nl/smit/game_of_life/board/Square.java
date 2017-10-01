@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import nl.smit.game_of_life.sprite.Sprite;
 import nl.smit.game_of_life.sprite.SpriteStore;
+import nl.smit.game_of_life.sprite.SquareSpriteStore;
 
 import java.util.EnumMap;
 import java.util.Map;
@@ -21,9 +22,7 @@ public class Square {
             REMAIN_ALIVE_UPPER_BOUND = 3,
             BECOME_ALIVE_VALUE = 3;
 
-    private static final String
-            ALIVE_SPRITE_RESOURCE = "/sprite/alive.png",
-            DEAD_SPRITE_RESOURCE = "/sprite/dead.png";
+
 
 
     /**
@@ -44,7 +43,7 @@ public class Square {
     /**
      * Sprite related properties.
      */
-    private final SpriteStore spriteStore;
+    private final SquareSpriteStore spriteStore;
 
     /**
      * The neighbour properties.
@@ -54,7 +53,7 @@ public class Square {
     /**
      * The default constructor.
      */
-    Square(SpriteStore spriteStore) {
+    Square(SquareSpriteStore spriteStore) {
         this.spriteStore = spriteStore;
         this.alive = ALIVE_STARTING_VALUE;
         this.aliveInNextCycle = ALIVE_IN_NEXT_CYCLE_DEFAULT;
@@ -128,9 +127,9 @@ public class Square {
      */
     public Sprite getSprite() {
         if (isAlive()) {
-            return this.spriteStore.getSprite(ALIVE_SPRITE_RESOURCE);
+            return this.spriteStore.getAliveSprite();
         }
 
-        return this.spriteStore.getSprite(DEAD_SPRITE_RESOURCE);
+        return this.spriteStore.getDeadSprite();
     }
 }

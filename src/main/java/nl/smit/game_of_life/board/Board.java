@@ -14,7 +14,7 @@ import java.util.stream.Stream;
 public class Board {
 
     private final Square[][] grid;
-    @Getter(AccessLevel.PACKAGE)
+    @Getter(AccessLevel.PUBLIC)
     private final int
             width,
             height;

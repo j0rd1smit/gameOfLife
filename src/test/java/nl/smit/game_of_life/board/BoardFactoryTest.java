@@ -1,6 +1,7 @@
 package nl.smit.game_of_life.board;
 
 import nl.smit.game_of_life.sprite.SpriteStore;
+import nl.smit.game_of_life.sprite.SquareSpriteStore;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -54,7 +55,7 @@ class BoardFactoryTest {
     }
 
     private void setUpSquares() {
-        SpriteStore spriteStore = mock(SpriteStore.class);
+        SquareSpriteStore spriteStore = mock(SquareSpriteStore.class);
         s1 = new Square(spriteStore);
         s2 = new Square(spriteStore);
         s3 = new Square(spriteStore);

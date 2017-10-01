@@ -1,7 +1,7 @@
 package nl.smit.game_of_life.board;
 
 import lombok.AllArgsConstructor;
-import nl.smit.game_of_life.sprite.SpriteStore;
+import nl.smit.game_of_life.sprite.SquareSpriteStore;
 
 /**
  * [Class explanation]
@@ -10,7 +10,7 @@ import nl.smit.game_of_life.sprite.SpriteStore;
  */
 @AllArgsConstructor
 public class GridFactory {
-    private final SpriteStore spriteStore;
+    private final SquareSpriteStore spriteStore;
 
 
     public Square[][] createGrid(int width, int heigth) {

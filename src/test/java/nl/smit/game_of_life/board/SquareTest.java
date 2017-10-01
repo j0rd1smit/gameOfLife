@@ -2,6 +2,7 @@ package nl.smit.game_of_life.board;
 
 import nl.smit.game_of_life.sprite.Sprite;
 import nl.smit.game_of_life.sprite.SpriteStore;
+import nl.smit.game_of_life.sprite.SquareSpriteStore;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -26,15 +27,12 @@ class SquareTest {
      */
     private static final int
             BECOME_ALIVE_VALUE = 3;
-    private static final String
-            ALIVE_SPRITE_RESOURCE = "/sprite/alive.png",
-            DEAD_SPRITE_RESOURCE = "/sprite/dead.png";
 
     /**
      * Dependencies.
      */
     private List<Square> neighbours;
-    private SpriteStore spriteStore;
+    private SquareSpriteStore spriteStore;
     private Sprite aliveSprite, deadSprite;
 
 
@@ -59,10 +57,10 @@ class SquareTest {
         aliveSprite = mock(Sprite.class);
         deadSprite = mock(Sprite.class);
 
-        spriteStore = mock(SpriteStore.class);
+        spriteStore = mock(SquareSpriteStore.class);
 
-        when(spriteStore.getSprite(ALIVE_SPRITE_RESOURCE)).thenReturn(aliveSprite);
-        when(spriteStore.getSprite(DEAD_SPRITE_RESOURCE)).thenReturn(deadSprite);
+        when(spriteStore.getAliveSprite()).thenReturn(aliveSprite);
+        when(spriteStore.getDeadSprite()).thenReturn(deadSprite);
     }
 
     private void setUpNeighbourMocks() {
