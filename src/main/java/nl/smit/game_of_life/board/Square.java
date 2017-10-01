@@ -3,6 +3,8 @@ package nl.smit.game_of_life.board;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
+import nl.smit.game_of_life.sprite.Sprite;
+import nl.smit.game_of_life.sprite.SpriteStore;
 
 import java.util.EnumMap;
 import java.util.Map;
@@ -18,6 +20,10 @@ public class Square {
             REMAIN_ALIVE_LOWER_BOUND = 2,
             REMAIN_ALIVE_UPPER_BOUND = 3,
             BECOME_ALIVE_VALUE = 3;
+
+    private static final String
+            ALIVE_SPRITE_RESOURCE = "/sprite/alive.png",
+            DEAD_SPRITE_RESOURCE = "/sprite/dead.png";
 
 
     /**
@@ -36,6 +42,11 @@ public class Square {
     private boolean aliveInNextCycle;
 
     /**
+     * Sprite related properties.
+     */
+    private final SpriteStore spriteStore;
+
+    /**
      * The neighbour properties.
      */
     private Map<Direction, Square> neighbours = new EnumMap<>(Direction.class);
@@ -43,7 +54,8 @@ public class Square {
     /**
      * The default constructor.
      */
-    Square() {
+    Square(SpriteStore spriteStore) {
+        this.spriteStore = spriteStore;
         this.alive = ALIVE_STARTING_VALUE;
         this.aliveInNextCycle = ALIVE_IN_NEXT_CYCLE_DEFAULT;
     }
@@ -102,7 +114,23 @@ public class Square {
         aliveInNextCycle = ALIVE_IN_NEXT_CYCLE_DEFAULT;
     }
 
+    /**
+     *
+     * @param direction The direction of the neighbour.
+     * @return The neighbouring square in the given direction.
+     */
     public Square getSquareAt(Direction direction) {
         return neighbours.get(direction);
+    }
+
+    /**
+     * @return The current sprite based on the current state.
+     */
+    public Sprite getSprite() {
+        if (isAlive()) {
+            return this.spriteStore.getSprite(ALIVE_SPRITE_RESOURCE);
+        }
+
+        return this.spriteStore.getSprite(DEAD_SPRITE_RESOURCE);
     }
 }

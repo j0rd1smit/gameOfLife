@@ -1,5 +1,6 @@
 package nl.smit.game_of_life.board;
 
+import nl.smit.game_of_life.sprite.SpriteStore;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -53,15 +54,15 @@ class BoardFactoryTest {
     }
 
     private void setUpSquares() {
-        s1 = new Square();
-        s2 = new Square();
-        s3 = new Square();
-        s4 = new Square();
+        SpriteStore spriteStore = mock(SpriteStore.class);
+        s1 = new Square(spriteStore);
+        s2 = new Square(spriteStore);
+        s3 = new Square(spriteStore);
+        s4 = new Square(spriteStore);
     }
 
     private void setUpGridFactoryMock() {
         gridFactory = mock(GridFactory.class);
-
 
         // s1 s3
         // s2 s4

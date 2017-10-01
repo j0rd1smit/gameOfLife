@@ -1,5 +1,7 @@
 package nl.smit.game_of_life.board;
 
+import nl.smit.game_of_life.sprite.Sprite;
+import nl.smit.game_of_life.sprite.SpriteStore;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -24,11 +26,16 @@ class SquareTest {
      */
     private static final int
             BECOME_ALIVE_VALUE = 3;
+    private static final String
+            ALIVE_SPRITE_RESOURCE = "/sprite/alive.png",
+            DEAD_SPRITE_RESOURCE = "/sprite/dead.png";
 
     /**
      * Dependencies.
      */
     private List<Square> neighbours;
+    private SpriteStore spriteStore;
+    private Sprite aliveSprite, deadSprite;
 
 
     /**
@@ -41,10 +48,21 @@ class SquareTest {
      */
     @BeforeEach
     void setUpSquareTest() {
+        setUpSpriteStoreMock();
         setUpNeighbourMocks();
 
-        square = new Square();
+        square = new Square(spriteStore);
         linkToMockNeighbours();
+    }
+
+    private void setUpSpriteStoreMock() {
+        aliveSprite = mock(Sprite.class);
+        deadSprite = mock(Sprite.class);
+
+        spriteStore = mock(SpriteStore.class);
+
+        when(spriteStore.getSprite(ALIVE_SPRITE_RESOURCE)).thenReturn(aliveSprite);
+        when(spriteStore.getSprite(DEAD_SPRITE_RESOURCE)).thenReturn(deadSprite);
     }
 
     private void setUpNeighbourMocks() {
@@ -169,5 +187,25 @@ class SquareTest {
         calcNextStateAndgoToNextState();
 
         assertInAliveState();
+    }
+
+    /**
+     * Verify that the alive state sprite is returned.
+     */
+    @Test
+    void aliveStateSprite() {
+        aliveState();
+
+        assertThat(square.getSprite()).isEqualTo(aliveSprite);
+    }
+
+    /**
+     * Verify that the dead state sprite is returned.
+     */
+    @Test
+    void deadStateSprite() {
+        deadState();
+
+        assertThat(square.getSprite()).isEqualTo(deadSprite);
     }
 }

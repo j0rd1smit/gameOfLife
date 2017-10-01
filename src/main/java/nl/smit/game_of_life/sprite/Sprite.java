@@ -5,9 +5,8 @@ import java.awt.Graphics;
 /**
  * Specifies the required functionality for a {@link Sprite}.
  *
- * @author Jordi Smit, Ashwin Sitaram, 5-9-2017.
+ * @author Jordi Smit.
  */
-@SuppressWarnings("nullness")
 public interface Sprite {
 
     /**
