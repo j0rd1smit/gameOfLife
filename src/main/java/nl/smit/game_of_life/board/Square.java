@@ -35,8 +35,8 @@ public class Square {
     /**
      * The alive properties.
      */
-    @Setter(AccessLevel.PACKAGE)
-    @Getter(AccessLevel.PACKAGE)
+    @Setter(AccessLevel.PUBLIC)
+    @Getter(AccessLevel.PUBLIC)
     private boolean alive;
     private boolean aliveInNextCycle;
 
