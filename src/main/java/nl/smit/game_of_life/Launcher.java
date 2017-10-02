@@ -27,7 +27,6 @@ public class Launcher {
     }
 
     public void launch() {
-        board.squareAt(0, 0).setAlive(true);
         ui.start();
     }
 }
