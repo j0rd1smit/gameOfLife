@@ -21,6 +21,7 @@ public class Board {
 
     /**
      * The default constructor.
+     *
      * @param grid The square grid of the board.
      */
     Board(Square[][] grid) {

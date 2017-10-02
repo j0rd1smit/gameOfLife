@@ -14,7 +14,6 @@ public class SquareSpriteStore extends SpriteStore {
 
 
     /**
-     *
      * @return Alive sprite for a square.
      */
     public Sprite getAliveSprite() {
@@ -22,7 +21,6 @@ public class SquareSpriteStore extends SpriteStore {
     }
 
     /**
-     *
      * @return Dead sprite for a square.
      */
     public Sprite getDeadSprite() {

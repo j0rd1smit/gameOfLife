@@ -25,6 +25,7 @@ public class BoardPanel extends JPanel {
 
     /**
      * The default constructor.
+     *
      * @param board The board to be used.
      */
     public BoardPanel(Board board) {
@@ -45,7 +46,7 @@ public class BoardPanel extends JPanel {
         });
     }
 
-    private void procesMouseClick(@UnderInitialization BoardPanel this,  Point point) {
+    private void procesMouseClick(@UnderInitialization BoardPanel this, Point point) {
         assert board != null;
 
         int x = point.x / SQUARE_PIXEL_SIZE;
@@ -65,10 +66,8 @@ public class BoardPanel extends JPanel {
     /**
      * Renders the board on the given graphics context to the given dimensions.
      *
-     * @param graphics
-     *            The graphics context to draw on.
-     * @param window
-     *            The dimensions to scale the rendered board to.
+     * @param graphics The graphics context to draw on.
+     * @param window   The dimensions to scale the rendered board to.
      */
     private void render(Graphics graphics, Dimension window) {
         int cellW = window.width / board.getWidth();
@@ -91,23 +90,16 @@ public class BoardPanel extends JPanel {
      * Renders a single square on the given graphics context on the specified
      * rectangle.
      *
-     * @param square
-     *            The square to render.
-     * @param graphics
-     *            The graphics context to draw on.
-     * @param x
-     *            The x position to start drawing.
-     * @param y
-     *            The y position to start drawing.
-     * @param width
-     *            The width of this square (in pixels.)
-     * @param height
-     *            The height of this square (in pixels.)
+     * @param square   The square to render.
+     * @param graphics The graphics context to draw on.
+     * @param x        The x position to start drawing.
+     * @param y        The y position to start drawing.
+     * @param width    The width of this square (in pixels.)
+     * @param height   The height of this square (in pixels.)
      */
     private void render(Square square, Graphics graphics, int x, int y, int width, int height) {
         square.getSprite().draw(graphics, x, y, width, height);
     }
-
 
 
 }

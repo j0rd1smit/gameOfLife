@@ -4,7 +4,6 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 import nl.smit.game_of_life.sprite.Sprite;
-import nl.smit.game_of_life.sprite.SpriteStore;
 import nl.smit.game_of_life.sprite.SquareSpriteStore;
 
 import java.util.EnumMap;
@@ -23,15 +22,16 @@ public class Square {
             BECOME_ALIVE_VALUE = 3;
 
 
-
-
     /**
      * The default values.
      */
     private static final boolean
             ALIVE_IN_NEXT_CYCLE_DEFAULT = false,
             ALIVE_STARTING_VALUE = false;
-
+    /**
+     * Sprite related properties.
+     */
+    private final SquareSpriteStore spriteStore;
     /**
      * The alive properties.
      */
@@ -39,12 +39,6 @@ public class Square {
     @Getter(AccessLevel.PUBLIC)
     private boolean alive;
     private boolean aliveInNextCycle;
-
-    /**
-     * Sprite related properties.
-     */
-    private final SquareSpriteStore spriteStore;
-
     /**
      * The neighbour properties.
      */
@@ -61,6 +55,7 @@ public class Square {
 
     /**
      * Links the square to its neighbours.
+     *
      * @param direction The direction of the neighbour.
      * @param neighbour The neighour in that direction.
      */
@@ -77,8 +72,7 @@ public class Square {
 
         if (alive) {
             aliveInNextCycle = stillAliveNextCycle(amountOfLivingNeightbours);
-        }
-        else {
+        } else {
             aliveInNextCycle = becomesAliveNextCycle(amountOfLivingNeightbours);
         }
     }
@@ -91,7 +85,6 @@ public class Square {
     private boolean becomesAliveNextCycle(int amountOfLivingNeightbours) {
         return amountOfLivingNeightbours == BECOME_ALIVE_VALUE;
     }
-
 
 
     private int countLivingNeighbours() {
@@ -114,7 +107,6 @@ public class Square {
     }
 
     /**
-     *
      * @param direction The direction of the neighbour.
      * @return The neighbouring square in the given direction.
      */

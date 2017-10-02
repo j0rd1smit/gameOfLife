@@ -5,7 +5,6 @@ import nl.smit.game_of_life.board.BoardFactory;
 import nl.smit.game_of_life.board.GridFactory;
 import nl.smit.game_of_life.gui.UI;
 import nl.smit.game_of_life.gui.UIBuilder;
-import nl.smit.game_of_life.sprite.SpriteStore;
 import nl.smit.game_of_life.sprite.SquareSpriteStore;
 
 /**
@@ -23,13 +22,12 @@ public class Launcher {
     private final Board board = boardFactory.board(WIDTH, HEIGHT);
     private final UI ui = new UIBuilder(board).build();
 
-
-    public void launch() {
-        board.squareAt(0,0).setAlive(true);
-        ui.start();
-    }
-
     public static void main(String[] args) {
         new Launcher().launch();
+    }
+
+    public void launch() {
+        board.squareAt(0, 0).setAlive(true);
+        ui.start();
     }
 }

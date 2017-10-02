@@ -13,6 +13,7 @@ public class Game {
 
     /**
      * The default constructor.
+     *
      * @param board The board that the game uses.
      */
     public Game(Board board) {
@@ -25,7 +26,6 @@ public class Game {
     public void preformStep() {
         board.preformStep();
     }
-
 
 
 }

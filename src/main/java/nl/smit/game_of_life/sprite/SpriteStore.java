@@ -46,11 +46,9 @@ public class SpriteStore {
     /**
      * Loads a sprite from a resource on the class path.
      *
-     * @param resource
-     *            The resource path.
+     * @param resource The resource path.
      * @return A new sprite for the resource.
-     * @throws IOException
-     *             When the resource could not be loaded.
+     * @throws IOException When the resource could not be loaded.
      */
     private Sprite loadSpriteFromResource(String resource) throws IOException {
         try (InputStream input = SpriteStore.class.getResourceAsStream(resource)) {

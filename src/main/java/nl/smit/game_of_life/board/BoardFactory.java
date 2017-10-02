@@ -12,8 +12,7 @@ public class BoardFactory {
     private final GridFactory gridFactory;
 
     /**
-     *
-     * @param width The width of the board.
+     * @param width  The width of the board.
      * @param height The height of the board.
      * @return a new board.
      */
@@ -42,7 +41,6 @@ public class BoardFactory {
             }
         }
     }
-
 
 
 }

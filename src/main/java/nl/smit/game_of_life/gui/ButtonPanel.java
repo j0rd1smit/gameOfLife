@@ -15,8 +15,9 @@ public class ButtonPanel extends JPanel {
 
     /**
      * Create a new button panel with a button for every action.
+     *
      * @param buttons The map of caption - action for each button.
-     * @param parent The parent frame, used to return window focus.
+     * @param parent  The parent frame, used to return window focus.
      */
     public ButtonPanel(final Map<String, Action> buttons, final JFrame parent) {
 
