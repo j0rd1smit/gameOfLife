@@ -42,7 +42,7 @@ public class Square {
     /**
      * The neighbour properties.
      */
-    private Map<Direction, Square> neighbours = new EnumMap<>(Direction.class);
+    private final Map<Direction, Square> neighbours = new EnumMap<>(Direction.class);
 
     /**
      * The default constructor.
@@ -91,7 +91,8 @@ public class Square {
         assert neighbours.size() == AMOUNT_OF_NEIGHBOURS;
         int count = 0;
         for (Direction direction : Direction.values()) {
-            if (neighbours.get(direction).isAlive()) {
+            Square neighbour = neighbours.get(direction);
+            if (neighbour != null && neighbour.isAlive()) {
                 count++;
             }
         }
